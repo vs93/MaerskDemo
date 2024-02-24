@@ -1,15 +1,10 @@
+/Users/vaibhavshukla/Documents/MaerskDemo/src/main/java/com/maersk/booking/demo/Demo/service/impl/BookingServiceImpl.java
 /Users/vaibhavshukla/Documents/MaerskDemo/src/main/java/com/maersk/booking/demo/Demo/util/ContainerType.java
 /Users/vaibhavshukla/Documents/MaerskDemo/src/main/java/com/maersk/booking/demo/Demo/service/api/BookingService.java
-/Users/vaibhavshukla/Documents/MaerskDemo/src/main/java/com/maersk/booking/demo/Demo/config/CassandraCreateKeyspaceAutoConfiguration.java
-/Users/vaibhavshukla/Documents/MaerskDemo/src/main/java/com/maersk/booking/demo/Demo/service/impl/BookingServiceImpl.java
-/Users/vaibhavshukla/Documents/MaerskDemo/src/main/java/com/maersk/booking/demo/Demo/config/CassandraConfig.java
 /Users/vaibhavshukla/Documents/MaerskDemo/src/main/java/com/maersk/booking/demo/Demo/controller/BookingController.java
-/Users/vaibhavshukla/Documents/MaerskDemo/src/main/java/com/maersk/booking/demo/Demo/config/MongoConfig.java
 /Users/vaibhavshukla/Documents/MaerskDemo/src/main/java/com/maersk/booking/demo/Demo/model/Booking.java
 /Users/vaibhavshukla/Documents/MaerskDemo/src/main/java/com/maersk/booking/demo/Demo/repository/BookingMongoRepository.java
 /Users/vaibhavshukla/Documents/MaerskDemo/src/main/java/com/maersk/booking/demo/Demo/validator/impl/BookingValidatorImpl.java
-/Users/vaibhavshukla/Documents/MaerskDemo/src/main/java/com/maersk/booking/demo/Demo/config/AppConfig.java
 /Users/vaibhavshukla/Documents/MaerskDemo/src/main/java/com/maersk/booking/demo/Demo/config/MongoDBConfig.java
-/Users/vaibhavshukla/Documents/MaerskDemo/src/main/java/com/maersk/booking/demo/Demo/repository/BookingRepository.java
 /Users/vaibhavshukla/Documents/MaerskDemo/src/main/java/com/maersk/booking/demo/Demo/validator/service/BookingValidator.java
 /Users/vaibhavshukla/Documents/MaerskDemo/src/main/java/com/maersk/booking/demo/Demo/MaerskDemoApplication.java
