@@ -1,15 +1,12 @@
 package com.maersk.booking.demo.Demo.model;
 
 import com.maersk.booking.demo.Demo.util.ContainerType;
-import lombok.*;
-
-import org.springframework.context.annotation.Scope;
-import org.springframework.context.annotation.ScopedProxyMode;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.data.annotation.Id;
-
 import org.springframework.data.mongodb.core.mapping.Document;
-
-import java.time.LocalDateTime;
 
 
 @Getter

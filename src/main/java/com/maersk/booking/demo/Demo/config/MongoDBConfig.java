@@ -2,11 +2,11 @@ package com.maersk.booking.demo.Demo.config;
 
 //import com.mongodb.reactivestreams.client.MongoClient;
 //import com.mongodb.reactivestreams.client.MongoClients;
+
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.mongodb.config.AbstractMongoClientConfiguration;
-import org.springframework.data.mongodb.config.AbstractReactiveMongoConfiguration;
 import org.springframework.data.mongodb.repository.config.EnableReactiveMongoRepositories;
 
 @EnableReactiveMongoRepositories(basePackages = "com.maersk.booking.demo.Demo.repository")
