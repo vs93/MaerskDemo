@@ -1,0 +1,81 @@
+{
+	"info": {
+		"_postman_id": "245fbd90-fde3-4387-a293-b35565a462c0",
+		"name": "MaerskDemo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Booking",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"containerType\": \"DRY\",\n    \"containerSize\": 20,\n    \"origin\": \"Southampton\",\n    \"destination\": \"Singapore\",\n    \"quantity\": 5,\n    \"timestamp\": \"2020-10-12T13:53:09Z\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/bookings/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"bookings",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ValidateBooking",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"containerType\": \"DRY\",\n    \"containerSize\": 20,\n    \"origin\": \"Southampton\",\n    \"destination\": \"Singapore\",\n    \"quantity\": 5,\n    \"timestamp\": \"2020-10-12T13:53:09Z\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/bookings/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"bookings",
+						"create"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

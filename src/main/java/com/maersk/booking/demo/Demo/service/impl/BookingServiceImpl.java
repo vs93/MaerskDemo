@@ -5,8 +5,10 @@ import com.maersk.booking.demo.Demo.repository.BookingMongoRepository;
 import com.maersk.booking.demo.Demo.service.api.BookingService;
 import com.maersk.booking.demo.Demo.validator.service.BookingValidator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -44,6 +46,18 @@ public class BookingServiceImpl implements BookingService {
                 LocalDateTime ldt = LocalDateTime.now();
                 String formattedDateTime = ldt.format(ISO_FORMATTER);
                 booking.setCreatedTimeStamp(formattedDateTime);
+                Booking recentBooking=bookingRepository.findAll(Sort.by("bookingRefNumber:-1").descending()).stream().findFirst().orElse(null);
+                if(recentBooking==null)
+                {
+                    bookingRefNumber="957000001";
+                }
+                else
+                {
+                    BigDecimal refNumber= new BigDecimal(recentBooking.getBookingRefNumber());
+                    refNumber=refNumber.add(new BigDecimal(1));
+                    bookingRefNumber=refNumber.toString();
+                }
+                booking.setBookingRefNumber(bookingRefNumber);
                 Booking savedBooking = bookingRepository.save(booking);
                 bookingRefNumber = savedBooking.getBookingRefNumber();
             }
