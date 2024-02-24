@@ -1,0 +1,7 @@
+{
+  "containerType" : "DRY",
+  "containerSize" : 20,
+  "origin" : "Southampton",
+  "destination" : "Singapore",
+  "quantity" : 5
+}

@@ -1,0 +1,7 @@
+{
+  "containerType" : "REEFER",
+  "containerSize" : 20,
+  "origin" : "Southampton",
+  "destination" : "Singapore",
+  "quantity" : 5
+}

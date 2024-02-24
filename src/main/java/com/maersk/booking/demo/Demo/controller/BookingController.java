@@ -2,42 +2,53 @@ package com.maersk.booking.demo.Demo.controller;
 
 
 import com.maersk.booking.demo.Demo.model.Booking;
-import com.maersk.booking.demo.Demo.repository.BookingRepository;
+import com.maersk.booking.demo.Demo.repository.BookingMongoRepository;
+import com.maersk.booking.demo.Demo.service.api.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import reactor.core.publisher.Flux;
-import reactor.core.publisher.Mono;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 
 @RestController
-@RequestMapping("/Bookings")
+@RequestMapping("/api/bookings/")
 public class BookingController {
 
     @Autowired
-    private BookingRepository bookingRepository;
+    private BookingMongoRepository bookingRepository;
+
+    @Autowired
+    private BookingService bookingService;
 
     @GetMapping
-    public Flux<Booking> getAllBookings() {
+    public List<Booking> getAllBookings() {
         return bookingRepository.findAll();
     }
 
     @GetMapping("/{id}")
-    public Mono<Booking> getBookingById(@PathVariable String id) {
-        return bookingRepository.findById(id);
+    public Booking getBookingById(@PathVariable String id) {
+        return bookingRepository.findByName(id);
     }
 
-    @PostMapping
-    public Mono<Booking> createBooking(@RequestBody Booking Booking) {
-        return bookingRepository.save(Booking);
+
+    @PostMapping("create")
+    public ResponseEntity<?> createBooking(@RequestBody Booking Booking) {
+        String bookingNumber= bookingService.saveBooking(Booking);
+        Map<String,String> responseMap=new HashMap<>();
+        responseMap.put("bookingRef",bookingNumber);
+        return new ResponseEntity<>(responseMap, HttpStatus.OK);
     }
 
-    @PutMapping("/{id}")
-    public Mono<Booking> updateBooking(@PathVariable String id, @RequestBody Booking booking) {
-        booking.setBookingRefNumber(id);
-        return bookingRepository.save(booking);
+    @PostMapping("validate")
+    public ResponseEntity<?> validateBooking(@RequestBody Booking Booking) {
+        Boolean availableSpace= bookingService.validateBooking(Booking);
+        Map<String,Boolean> responseMap=new HashMap<>();
+        responseMap.put("availableSpace",availableSpace);
+        return new ResponseEntity<>(responseMap, HttpStatus.OK);
     }
 
-    @DeleteMapping("/{id}")
-    public Mono<Void> deleteBooking(@PathVariable String id) {
-        return bookingRepository.deleteById(id);
-    }
 }
