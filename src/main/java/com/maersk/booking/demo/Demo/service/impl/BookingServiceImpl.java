@@ -46,7 +46,7 @@ public class BookingServiceImpl implements BookingService {
                 LocalDateTime ldt = LocalDateTime.now();
                 String formattedDateTime = ldt.format(ISO_FORMATTER);
                 booking.setCreatedTimeStamp(formattedDateTime);
-                Booking recentBooking=bookingRepository.findAll(Sort.by("bookingRefNumber:-1").descending()).stream().findFirst().orElse(null);
+                Booking recentBooking=bookingRepository.findAll(Sort.by("bookingRefNumber").descending()).stream().findFirst().orElse(null);
                 if(recentBooking==null)
                 {
                     bookingRefNumber="957000001";
