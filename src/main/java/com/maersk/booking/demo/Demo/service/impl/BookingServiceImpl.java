@@ -7,6 +7,7 @@ import com.maersk.booking.demo.Demo.validator.service.BookingValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -36,6 +37,7 @@ public class BookingServiceImpl implements BookingService {
     }
 
     @Override
+    @Transactional
     public String saveBooking(Booking booking) {
         String bookingRefNumber = null;
         Boolean isValidRequest=bookingValidator.bookingPreProcessor(booking);

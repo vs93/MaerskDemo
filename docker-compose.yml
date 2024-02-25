@@ -1,9 +1,24 @@
 version: '3.8'
 
 services:
+  api_service:
+    build: .
+    restart: always
+    ports:
+      - 8080:8080
+    networks:
+      - springapimongo-net
+    environment:
+      - spring.data.mongodb.uri=mongodb://admin:password@mongodb:27017/bookingDb?authSource=admin&authMechanism=SCRAM-SHA-1
+    depends_on:
+      - mongodb
+    volumes:
+      - .m2:/root/.m2
   mongodb:
     image: mongo:latest
     container_name: my-mongodb-container
+    networks:
+      - springapimongo-net
     ports:
       - "27017:27017"
     volumes:
@@ -14,3 +29,6 @@ services:
 
 volumes:
   mongodb_data:
+
+networks:
+  springapimongo-net:
