@@ -2,15 +2,16 @@ package com.maersk.booking.demo.Demo.controller;
 
 
 import com.maersk.booking.demo.Demo.model.Booking;
-import com.maersk.booking.demo.Demo.repository.BookingMongoRepository;
-import com.maersk.booking.demo.Demo.service.api.BookingService;
+import com.maersk.booking.demo.Demo.booking.service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 
@@ -19,20 +20,7 @@ import java.util.Map;
 public class BookingController {
 
     @Autowired
-    private BookingMongoRepository bookingRepository;
-
-    @Autowired
     private BookingService bookingService;
-
-    @GetMapping
-    public List<Booking> getAllBookings() {
-        return bookingRepository.findAll();
-    }
-
-    @GetMapping("/{id}")
-    public Booking getBookingById(@PathVariable String id) {
-        return bookingRepository.findByName(id);
-    }
 
 
     @PostMapping("create")
